@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedagogia | IFsuldeMinas – Polo Bragança</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --secondary: #FF6584;
+            --accent: #4ECDC4;
+            --dark: #2D3561;
+            --light: #F7F9FB;
+            --text: #333;
+            --card-bg: rgba(255, 255, 255, 0.9);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M0,100 L100,0" stroke="rgba(108, 99, 255, 0.05)" stroke-width="1"/></svg>');
+            z-index: -1;
+        }
+        header {
+            background: var(--card-bg);
+            padding: 15px 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 3px solid var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            height: 90px;
+        }
+        .logo-left, .logo-right {
+            width: 180px;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            max-height: 80px;
+            object-fit: contain;
+        }
+        .logo-left:hover, .logo-right:hover {
+            transform: scale(1.05);
+        }
+        .title {
+            text-align: center;
+            flex: 1;
+            padding: 0 20px;
+        }
+        .title h1 {
+            margin: 0;
+            color: var(--primary);
+            font-size: 1.8em;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            line-height: 1.2;
+        }
+        .title h1::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        .title p {
+            margin: 4px 0 0;
+            color: var(--dark);
+            font-style: italic;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        .container {
+            display: flex;
+            min-height: 80vh;
+            padding: 20px 30px;
+            gap: 30px;
+            max-width: 1200px; /* Largura um pouco menor para cards mais centralizados */
+            margin: 0 auto;
+        }
+        .disciplines {
+            width: 100%;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            overflow-y: auto;
+            max-height: calc(100vh - 150px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .disciplines h2 {
+            color: var(--dark);
+            margin-bottom: 30px;
+            font-size: 1.8em;
+            font-weight: 600;
+            text-align: center;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        .disciplines h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        .discipline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .discipline-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .discipline-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            border: 1px solid rgba(108, 99, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .discipline-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(108, 99, 255, 0.2);
+            border-color: var(--primary);
+        }
+        .discipline-card i {
+            font-size: 3.5em;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .discipline-card h3 {
+            margin: 0 0 10px 0;
+            color: var(--dark);
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        .discipline-card p {
+            margin: 0;
+            font-size: 1em;
+            color: #666;
+        }
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9em;
+            margin-top: 20px;
+            position: relative;
+        }
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        footer p {
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+            .disciplines {
+                width: 100%;
+                padding: 20px;
+                position: relative;
+                top: 0;
+                max-height: none;
+            }
+            header {
+                flex-direction: column;
+                padding: 15px;
+                text-align: center;
+                height: auto;
+                min-height: 120px;
+            }
+            .logo-left, .logo-right {
+                max-height: 70px;
+            }
+            .title {
+                text-align: center;
+                margin-top: 10px;
+            }
+            .title h1 {
+                font-size: 1.6em;
+            }
+            .discipline-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logo do Curso atualizado -->
+        <img src="https://i.ibb.co/SX1MWSCM/Logo2.png" alt="Logo do Curso" class="logo-left">
+        <div class="title">
+            <h1>Pedagogia</h1>
+            <p>Material de estudo – Pedagogia | IFsuldeMinas – Polo Bragança</p>
+        </div>
+        <img src="https://muz.ifsuldeminas.edu.br/edfisica/images/8_Congresso/realizao-IF-Muz-1.png" alt="Logo IF SULDEMINAS - Campus Muzambinho" class="logo-right">
+    </header>
+
+    <div class="container">
+        <main class="disciplines">
+            <h2><i class="fas fa-book-open"></i> Disciplinas</h2>
+            
+            <div class="discipline-grid">
+                <!-- Cartão para Sociologia da Educação -->
+                <a href="https://lrpluciano.github.io/sociologiadaeducacao/" target="_blank" class="discipline-link">
+                    <div class="discipline-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Sociologia da Educação</h3>
+                        <p>Explore a relação entre sociedade e os processos educativos.</p>
+                    </div>
+                </a>
+                
+                <!-- Cartão para Fundamentos do Currículo -->
+                <a href="#" target="_blank" class="discipline-link" onclick="event.preventDefault()">
+                    <div class="discipline-card">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>Fundamentos do Currículo no Ensino Fundamental</h3>
+                        <p>Em breve</p>
+                    </div>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2025 LRPLUCIANO04 – Curso de Pedagogia. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- O JavaScript foi removido, pois não é mais necessário para esta página de portal -->
+</body>
+</html>
