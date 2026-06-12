@@ -3,295 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedagogia | IFsuldeMinas – Polo Bragança</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Psicologia do Desenvolvimento e Aprendizagem | Material de Estudo</title>
+    <meta name="description" content="Material completo de estudo para prova de Psicologia do Desenvolvimento e Aprendizagem. Vídeos, podcasts e quiz interativo.">
+    
+    <!-- Ícones (Google Fonts Icons) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    
+    <!-- Fontes (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary: #6C63FF;
-            --secondary: #FF6584;
-            --accent: #4ECDC4;
-            --dark: #2D3561;
-            --light: #F7F9FB;
-            --text: #333;
-            --card-bg: rgba(255, 255, 255, 0.9);
+            --primary: #4F46E5; /* Indigo */
+            --primary-dark: #4338ca;
+            --secondary: #0EA5E9; /* Sky Blue */
+            --accent: #F59E0B; /* Amber for highlights */
+            --bg-body: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --border: #E2E8F0;
+            --radius: 12px;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
         }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
             line-height: 1.6;
-            min-height: 100vh;
-            position: relative;
-        }
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0 L100,100 M0,100 L100,0" stroke="rgba(108, 99, 255, 0.05)" stroke-width="1"/></svg>');
-            z-index: -1;
-        }
-        header {
-            background: var(--card-bg);
-            padding: 15px 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            -webkit-font-smoothing: antialiased;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 3px solid var(--primary);
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(10px);
-            height: 90px;
+            border-bottom: 1px solid var(--border);
         }
-        .logo-left, .logo-right {
-            width: 180px;
-            height: auto;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-            max-height: 80px;
-            object-fit: contain;
-        }
-        .logo-left:hover, .logo-right:hover {
-            transform: scale(1.05);
-        }
-        .title {
-            text-align: center;
-            flex: 1;
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
             padding: 0 20px;
         }
-        .title h1 {
-            margin: 0;
-            color: var(--primary);
-            font-size: 1.8em;
+
+        nav {
+            display: flex;
+            justify-content: center; /* Centraliza o logo já que não há links */
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
             font-weight: 700;
-            position: relative;
-            display: inline-block;
-            line-height: 1.2;
-        }
-        .title h1::after {
-            content: "";
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 2px;
-        }
-        .title p {
-            margin: 4px 0 0;
-            color: var(--dark);
-            font-style: italic;
-            font-size: 0.9em;
-            font-weight: 500;
-        }
-        .container {
+            font-size: 1.1rem;
+            color: var(--primary);
             display: flex;
-            min-height: 80vh;
-            padding: 20px 30px;
-            gap: 30px;
-            max-width: 1200px; /* Largura um pouco menor para cards mais centralizados */
-            margin: 0 auto;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            white-space: nowrap;
         }
-        .disciplines {
-            width: 100%;
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            overflow-y: auto;
-            max-height: calc(100vh - 150px);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .disciplines h2 {
-            color: var(--dark);
-            margin-bottom: 30px;
-            font-size: 1.8em;
-            font-weight: 600;
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 80px 0 60px;
             text-align: center;
-            position: relative;
-            padding-bottom: 12px;
         }
-        .disciplines h2::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 2px;
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
         }
-        .discipline-grid {
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        /* --- Resources Grid --- */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title span {
+            color: var(--secondary);
+        }
+
+        .resources-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            gap: 24px;
+            margin-bottom: 80px;
         }
-        .discipline-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        .discipline-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
-            border: 1px solid rgba(108, 99, 255, 0.1);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            height: 100%;
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            transition: transform 0.2s, box-shadow 0.2s;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
         }
-        .discipline-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(108, 99, 255, 0.2);
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
             border-color: var(--primary);
         }
-        .discipline-card i {
-            font-size: 3.5em;
-            color: var(--primary);
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 20px;
+            font-size: 24px;
         }
-        .discipline-card h3 {
-            margin: 0 0 10px 0;
-            color: var(--dark);
-            font-size: 1.4em;
+
+        .card.video .card-icon { background: #fee2e2; color: #ef4444; }
+        .card.podcast .card-icon { background: #fef3c7; color: #d97706; }
+        .card.quiz .card-icon { background: #e0e7ff; color: #4f46e5; }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 8px;
             font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+            font-size: 0.95rem;
         }
-        .discipline-card p {
-            margin: 0;
-            font-size: 1em;
-            color: #666;
-        }
-        footer {
-            background: var(--dark);
+
+        .btn-primary {
+            background-color: var(--primary);
             color: white;
-            padding: 15px;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            background-color: #f1f5f9;
+            border-color: #cbd5e1;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: white;
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+            margin-top: auto;
             text-align: center;
-            font-size: 0.9em;
-            margin-top: 20px;
-            position: relative;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
-        footer::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-        }
-        footer p {
-            margin: 0;
-        }
+
+        /* --- Responsive --- */
         @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                padding: 15px;
-                gap: 15px;
-            }
-            .disciplines {
-                width: 100%;
-                padding: 20px;
-                position: relative;
-                top: 0;
-                max-height: none;
-            }
-            header {
-                flex-direction: column;
-                padding: 15px;
-                text-align: center;
-                height: auto;
-                min-height: 120px;
-            }
-            .logo-left, .logo-right {
-                max-height: 70px;
-            }
-            .title {
-                text-align: center;
-                margin-top: 10px;
-            }
-            .title h1 {
-                font-size: 1.6em;
-            }
-            .discipline-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.05);
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--primary), var(--secondary));
-            border-radius: 10px;
+            .hero h1 { font-size: 2rem; }
+            .resources-grid { grid-template-columns: 1fr; }
+            .logo { font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
+
     <header>
-        <!-- Logo do Curso atualizado -->
-        <img src="https://i.ibb.co/SX1MWSCM/Logo2.png" alt="Logo do Curso" class="logo-left">
-        <div class="title">
-            <h1>Pedagogia</h1>
-            <p>Material de estudo – Pedagogia | IFsuldeMinas – Polo Bragança</p>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span class="material-symbols-rounded">psychology</span>
+                    Psicologia do Desenvolvimento e Aprendizagem
+                </div>
+            </nav>
         </div>
-        <img src="https://muz.ifsuldeminas.edu.br/edfisica/images/8_Congresso/realizao-IF-Muz-1.png" alt="Logo IF SULDEMINAS - Campus Muzambinho" class="logo-right">
     </header>
 
-    <div class="container">
-        <main class="disciplines">
-            <h2><i class="fas fa-book-open"></i> Disciplinas</h2>
-            
-            <div class="discipline-grid">
-                <!-- Cartão para Sociologia da Educação -->
-                <a href="https://lrpluciano.github.io/ifsuldeminas-sociologiadaeducacao/" target="_blank" class="discipline-link">
-                    <div class="discipline-card">
-                        <i class="fas fa-users"></i>
-                        <h3>Sociologia da Educação</h3>
-                        <p>Explore a relação entre sociedade e os processos educativos.</p>
+    <main class="container">
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Material de Estudo</h1>
+            <p>
+                Selecione abaixo o formato de estudo para acessar o conteúdo compartilhado: Vídeo, Podcast ou Quiz.
+            </p>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="materiais">
+            <div class="resources-grid">
+                <!-- Video Card -->
+                <article class="card video">
+                    <div class="card-icon">
+                        <span class="material-symbols-rounded">play_circle</span>
                     </div>
-                </a>
-                
-                <!-- Cartão para Fundamentos do Currículo -->
-                <a href="#" target="_blank" class="discipline-link" onclick="event.preventDefault()">
-                    <div class="discipline-card">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                        <h3>Fundamentos do Currículo no Ensino Fundamental</h3>
-                        <p>Em breve</p>
+                    <h3>Vídeo Explicativo</h3>
+                    <p>
+                        Assista a uma análise visual profunda sobre os conceitos chave. Ideal para revisão visual rápida.
+                    </p>
+                    <a href="https://notebooklm.google.com/notebook/269def5a-c109-466a-bf4f-e01d829bbfa4/artifact/9cf86e41-44c4-4751-98cd-3a870016732d?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_" target="_blank" class="btn btn-primary">
+                        Assistir Vídeo
+                    </a>
+                </article>
+
+                <!-- Podcast Card -->
+                <article class="card podcast">
+                    <div class="card-icon">
+                        <span class="material-symbols-rounded">podcasts</span>
                     </div>
-                </a>
+                    <h3>Podcast AudioBook</h3>
+                    <p>
+                        Escute os conteúdos enquanto estiver em trânsito. Uma conversa detalhada gerada a partir do material de estudo.
+                    </p>
+                    <a href="https://notebooklm.google.com/notebook/269def5a-c109-466a-bf4f-e01d829bbfa4/artifact/25b67703-2934-4e86-a03e-27e978f696d3?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_" target="_blank" class="btn btn-primary">
+                        Ouvir Podcast
+                    </a>
+                </article>
+
+                <!-- External Quiz Card -->
+                <article class="card quiz">
+                    <div class="card-icon">
+                        <span class="material-symbols-rounded">quiz</span>
+                    </div>
+                    <h3>Quiz NotebookLM</h3>
+                    <p>
+                        Acesse o quiz gerado pela IA diretamente no NotebookLM para testar seus conhecimentos sobre a matéria original.
+                    </p>
+                    <a href="https://notebooklm.google.com/notebook/269def5a-c109-466a-bf4f-e01d829bbfa4/artifact/84f42be1-7dfb-4579-8df0-fba61d065fc0?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_" target="_blank" class="btn btn-outline">
+                        Abrir Quiz
+                    </a>
+                </article>
             </div>
-        </main>
-    </div>
+        </section>
+
+    </main>
 
     <footer>
-        <p>© 2025 LRPLUCIANO04 – Curso de Pedagogia. Todos os direitos reservados.</p>
+        <div class="container">
+            <p>&copy; 2023 Material de Estudo.</p>
+        </div>
     </footer>
 
-    <!-- O JavaScript foi removido, pois não é mais necessário para esta página de portal -->
 </body>
-
 </html>
