@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psicologia do Desenvolvimento e Aprendizagem | Material de Estudo</title>
-    <meta name="description" content="Material completo de estudo para prova de Psicologia do Desenvolvimento e Aprendizagem. Vídeos, podcasts e quiz interativo.">
+    <title>Material de Apoio | IFsuldeMinas</title>
+    <meta name="description" content="Ambiente de aprendizado com materiais organizados por unidades para promover a autonomia do estudante.">
     
     <!-- Ícones (Google Fonts Icons) -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -12,29 +12,44 @@
     <!-- Fontes (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --primary: #4F46E5; /* Indigo */
-            --primary-dark: #4338ca;
-            --secondary: #0EA5E9; /* Sky Blue */
-            --accent: #F59E0B; /* Amber for highlights */
-            --bg-body: #F8FAFC;
-            --bg-card: #FFFFFF;
-            --text-main: #1E293B;
-            --text-muted: #64748B;
-            --border: #E2E8F0;
+            /* Tema Escuro (Padrão - alinhado à preferência por materiais educacionais mais escuros) */
+            --primary: #818CF8;       /* Indigo suave */
+            --primary-dark: #6366F1;
+            --secondary: #38BDF8;     /* Sky Blue */
+            --accent: #FBBF24;        /* Amber */
+            --bg-body: #0F172A;       /* Slate 900 */
+            --bg-card: #1E293B;       /* Slate 800 */
+            --bg-iframe: #FFFFFF;     /* O iframe do Drive precisa de fundo branco para legibilidade */
+            --text-main: #F1F5F9;     /* Slate 100 */
+            --text-muted: #94A3B8;    /* Slate 400 */
+            --border: #334155;        /* Slate 700 */
             --radius: 12px;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+            --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        /* Tema Claro (Opcional, caso o usuário prefira explicitamente) */
+        @media (prefers-color-scheme: light) {
+            :root {
+                --primary: #4F46E5;
+                --primary-dark: #4338ca;
+                --secondary: #0EA5E9;
+                --accent: #F59E0B;
+                --bg-body: #F8FAFC;
+                --bg-card: #FFFFFF;
+                --text-main: #1E293B;
+                --text-muted: #64748B;
+                --border: #E2E8F0;
+                --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+                --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            }
         }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -45,27 +60,32 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* --- Header & Navigation --- */
+        /* --- Header --- */
         header {
-            background-color: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
+            background-color: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 100;
             border-bottom: 1px solid var(--border);
         }
+        @media (prefers-color-scheme: light) {
+            header { background-color: rgba(255, 255, 255, 0.85); }
+        }
 
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        nav {
+        .header-content {
             display: flex;
-            justify-content: center; /* Centraliza o logo já que não há links */
+            justify-content: space-between;
             align-items: center;
             height: 70px;
         }
@@ -76,19 +96,31 @@
             color: var(--primary);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             text-decoration: none;
-            white-space: nowrap;
+        }
+
+        .institution-badge {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--bg-card);
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         /* --- Hero Section --- */
         .hero {
-            padding: 80px 0 60px;
+            padding: 60px 0 40px;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2.25rem;
             font-weight: 800;
             margin-bottom: 16px;
             letter-spacing: -0.02em;
@@ -96,118 +128,107 @@
         }
 
         .hero p {
-            font-size: 1.125rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 32px;
+            max-width: 650px;
+            margin: 0 auto;
         }
 
-        /* --- Resources Grid --- */
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 24px;
+        /* --- Drive Integration Section --- */
+        .drive-section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-bottom: 20px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
         }
 
-        .section-title span {
-            color: var(--secondary);
-        }
+        .section-header span { color: var(--secondary); }
 
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-bottom: 80px;
-        }
-
-        .card {
+        .iframe-container {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 32px 24px;
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
+            padding: 8px; /* Borda interna para destacar o iframe */
+            box-shadow: var(--shadow);
             position: relative;
             overflow: hidden;
         }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--primary);
+        .drive-iframe {
+            width: 100%;
+            height: 70vh;
+            min-height: 500px;
+            border: none;
+            border-radius: 8px;
+            background-color: var(--bg-iframe);
+            display: block;
         }
 
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+        .fallback-link {
+            display: none; /* Só aparece se o iframe falhar ou em dispositivos muito específicos */
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+        }
+
+        /* --- Study Tips Card --- */
+        .tips-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 60px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            box-shadow: var(--shadow);
+        }
+
+        .tips-icon {
+            background: rgba(251, 191, 36, 0.15);
+            color: var(--accent);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            font-size: 24px;
+            flex-shrink: 0;
         }
 
-        .card.video .card-icon { background: #fee2e2; color: #ef4444; }
-        .card.podcast .card-icon { background: #fef3c7; color: #d97706; }
-        .card.quiz .card-icon { background: #e0e7ff; color: #4f46e5; }
-
-        .card h3 {
-            font-size: 1.25rem;
+        .tips-content h3 {
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 24px;
-            flex-grow: 1;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background 0.2s;
-            font-size: 0.95rem;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 1px solid var(--border);
+            margin-bottom: 8px;
             color: var(--text-main);
         }
 
-        .btn-outline:hover {
-            background-color: #f1f5f9;
-            border-color: #cbd5e1;
+        .tips-content p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
         }
+
+        .tips-content ul {
+            margin-top: 12px;
+            padding-left: 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        .tips-content li { margin-bottom: 6px; }
 
         /* --- Footer --- */
         footer {
-            background: white;
+            background: var(--bg-card);
             border-top: 1px solid var(--border);
-            padding: 40px 0;
+            padding: 32px 0;
             margin-top: auto;
             text-align: center;
             color: var(--text-muted);
@@ -216,9 +237,10 @@
 
         /* --- Responsive --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .resources-grid { grid-template-columns: 1fr; }
-            .logo { font-size: 0.9rem; }
+            .hero h1 { font-size: 1.75rem; }
+            .header-content { flex-direction: column; height: auto; padding: 16px 0; gap: 12px; }
+            .drive-iframe { height: 60vh; min-height: 400px; }
+            .tips-card { flex-direction: column; }
         }
     </style>
 </head>
@@ -226,12 +248,16 @@
 
     <header>
         <div class="container">
-            <nav>
+            <div class="header-content">
                 <div class="logo">
-                    <span class="material-symbols-rounded">psychology</span>
-                    Psicologia do Desenvolvimento e Aprendizagem
+                    <span class="material-symbols-rounded">school</span>
+                    Ambiente de Aprendizado
                 </div>
-            </nav>
+                <div class="institution-badge">
+                    <span class="material-symbols-rounded" style="font-size: 16px;">account_balance</span>
+                    IFsuldeMinas - Polo Bragança
+                </div>
+            </div>
         </div>
     </header>
 
@@ -239,56 +265,52 @@
         
         <!-- Hero Section -->
         <section class="hero">
-            <h1>Material de Estudo</h1>
+            <h1>Material Didático Integrado</h1>
             <p>
-                Selecione abaixo o formato de estudo para acessar o conteúdo compartilhado: Vídeo, Podcast ou Quiz.
+                Acesse todos os recursos da disciplina organizados por unidades. 
+                Este ambiente foi projetado para promover sua autonomia, permitindo que você estude no seu próprio ritmo.
             </p>
         </section>
 
-        <!-- Resources Section -->
-        <section id="materiais">
-            <div class="resources-grid">
-                <!-- Video Card -->
-                <article class="card video">
-                    <div class="card-icon">
-                        <span class="material-symbols-rounded">play_circle</span>
-                    </div>
-                    <h3>Vídeo Explicativo</h3>
-                    <p>
-                        Assista a uma análise visual profunda sobre os conceitos chave. Ideal para revisão visual rápida.
-                    </p>
-                    <a href="https://notebooklm.google.com/notebook/269def5a-c109-466a-bf4f-e01d829bbfa4/artifact/9cf86e41-44c4-4751-98cd-3a870016732d?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_" target="_blank" class="btn btn-primary">
-                        Assistir Vídeo
-                    </a>
-                </article>
+        <!-- Study Tips -->
+        <section class="tips-card">
+            <div class="tips-icon">
+                <span class="material-symbols-rounded">lightbulb</span>
+            </div>
+            <div class="tips-content">
+                <h3>Dicas para Aproveitar o Material</h3>
+                <p>Para garantir um estudo eficaz, recomendamos a seguinte abordagem:</p>
+                <ul>
+                    <li><strong>Organização:</strong> Os arquivos estão separados por unidades/módulos. Siga a ordem numérica.</li>
+                    <li><strong>Autonomia:</strong> Baixe os materiais para consulta offline ou marque os arquivos importantes com estrela no seu Drive.</li>
+                    <li><strong>Dúvidas:</strong> Anote suas dúvidas durante a leitura para discutirmos nos próximos encontros síncronos.</li>
+                </ul>
+            </div>
+        </section>
 
-                <!-- Podcast Card -->
-                <article class="card podcast">
-                    <div class="card-icon">
-                        <span class="material-symbols-rounded">podcasts</span>
-                    </div>
-                    <h3>Podcast AudioBook</h3>
-                    <p>
-                        Escute os conteúdos enquanto estiver em trânsito. Uma conversa detalhada gerada a partir do material de estudo.
-                    </p>
-                    <a href="https://notebooklm.google.com/notebook/269def5a-c109-466a-bf4f-e01d829bbfa4/artifact/25b67703-2934-4e86-a03e-27e978f696d3?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_" target="_blank" class="btn btn-primary">
-                        Ouvir Podcast
-                    </a>
-                </article>
-
-                <!-- External Quiz Card -->
-                <article class="card quiz">
-                    <div class="card-icon">
-                        <span class="material-symbols-rounded">quiz</span>
-                    </div>
-                    <h3>Quiz NotebookLM</h3>
-                    <p>
-                        Acesse o quiz gerado pela IA diretamente no NotebookLM para testar seus conhecimentos sobre a matéria original.
-                    </p>
-                    <a href="https://notebooklm.google.com/notebook/269def5a-c109-466a-bf4f-e01d829bbfa4/artifact/84f42be1-7dfb-4579-8df0-fba61d065fc0?utm_source=nlm_web_share&utm_medium=google_oo&utm_campaign=art_share_2&utm_content=&utm_smc=nlm_web_share_google_oo_art_share_2_" target="_blank" class="btn btn-outline">
-                        Abrir Quiz
-                    </a>
-                </article>
+        <!-- Embedded Drive Folder -->
+        <section class="drive-section">
+            <div class="section-header">
+                <span class="material-symbols-rounded">folder_open</span>
+                Explorar Arquivos da Disciplina
+            </div>
+            
+            <div class="iframe-container">
+                <!-- 
+                    O uso de 'embeddedfolderview' permite visualizar a pasta diretamente na página, 
+                    sem redirecionar o aluno para o site do Google Drive, mantendo o foco no estudo.
+                -->
+                <iframe 
+                    class="drive-iframe"
+                    src="https://drive.google.com/embeddedfolderview?id=1CijPX67p5cHBk8rFc4xb4qnskeWQ_j7f#list" 
+                    title="Pasta de Materiais do Google Drive"
+                    loading="lazy"
+                ></iframe>
+                
+                <!-- Fallback caso o navegador bloqueie iframes (raro, mas possível em configurações de privacidade extremas) -->
+                <div class="fallback-link">
+                    <p>Se a visualização acima não carregar, <a href="https://drive.google.com/drive/folders/1CijPX67p5cHBk8rFc4xb4qnskeWQ_j7f?usp=sharing" target="_blank" rel="noopener noreferrer" style="color: var(--primary); font-weight: 600;">clique aqui para abrir a pasta diretamente</a>.</p>
+                </div>
             </div>
         </section>
 
@@ -296,7 +318,8 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 Material de Estudo.</p>
+            <p>&copy; 2026 Material de Apoio Educacional | IFsuldeMinas - Polo Bragança</p>
+            <p style="font-size: 0.8rem; margin-top: 8px; opacity: 0.7;">Desenvolvido para promover a autonomia e acessibilidade no aprendizado.</p>
         </div>
     </footer>
 
